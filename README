@@ -1,0 +1,30 @@
+LISP
+
+lisp is confusing because the AST and the values that result
+from evaluating expressions are often considered to be the same
+data structure.
+
+in this implementation expressions (and values) consist of
+
+456 -- numbers
+abc -- symbols
+(a b c) -- s-expressions
+
+except for special forms, evaluating an s-expression will be
+interpreted as function application. when the first element of
+the list is not a lambda, an error occurs.
+
+using the repl provided, try the following examples
+
+8
+(+ 2 7)
+(< 2 7)
+(= abc abc)
+(list 1 2 3 4)
+(let (f 3) (f (lambda (x) (+ x 1))))
+(cond ((< 4 3) barf) ((> 3 4) puke))
+(car (list 1 2 3))
+(cdr (list 1 2 3))
+(cons a (list b c))
+(syscall 13 foo)
+(car ())
